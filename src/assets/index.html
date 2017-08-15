@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <% for (var i = 0, len = htmlWebpackPlugin.files.css.length; i < len; i++) {%>
+        <link rel="stylesheet" href=<%= htmlWebpackPlugin.files.css[i] %>>
+        <% } %>
+        <% for (var i = 0, len = htmlWebpackPlugin.files.js.length; i < len; i++) {%>
+        <script type="text/javascript" src=<%= htmlWebpackPlugin.files.js[i] %>></script>
+        <% } %>
+    </body>
+</html>
