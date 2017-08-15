@@ -1,3 +1,3 @@
-# gua
+# boilerplate
 
 ## react + webpack
