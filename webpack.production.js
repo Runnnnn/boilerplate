@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 console.log('--------------production--------------')
 module.exports = {
     entry: {
@@ -23,13 +23,13 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({name: 'common'}),
-        new ExtractTextPlugin("styles.[hash].css")
+        new ExtractTextPlugin('styles.[hash].css')
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})
+                use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
             }, {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']
@@ -40,4 +40,4 @@ module.exports = {
             }
         ]
     }
-};
+}

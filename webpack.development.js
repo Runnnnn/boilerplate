@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 console.log('--------------development--------------')
 module.exports = {
     entry: {
@@ -24,18 +24,18 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('development')
-             }
+            }
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common'
         }),
-        new ExtractTextPlugin("styles.[hash].css"),
+        new ExtractTextPlugin('styles.[hash].css'),
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})
+                use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
             }, {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']
@@ -46,4 +46,4 @@ module.exports = {
             }
         ]
     }
-};
+}
