@@ -16,6 +16,5 @@ export default function configureStore() {
     return {
         ...createStore(rootReducer, applyMiddleware(...middleware)),
         runSaga: sagaMiddleware.run,
-        history: history
     }
 }
