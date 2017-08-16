@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {HomePage} from '../../views'
+import {Comment} from '../../components'
+import img from '../../assets/span.jpg'
 
 class Home extends Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Home extends Component {
     }
     render() {
         return <div>
-            <HomePage/>
+            <Comment img={img}/>
         </div>
     }
 }

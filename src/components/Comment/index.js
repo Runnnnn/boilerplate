@@ -1,9 +1,10 @@
 import React from 'react'
-import {Input} from '../../components'
+import {Input, Image} from '../../components'
 
-const Comment = () => {
+const Comment = ({img}) => {
     return <div>
         Comment: <Input></Input>
+        <Image url={img}/>
     </div>
 }
 
