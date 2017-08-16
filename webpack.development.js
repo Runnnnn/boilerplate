@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 console.log('--------------development--------------')
 module.exports = {
@@ -34,20 +33,27 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common'
         }),
-        new ExtractTextPlugin('styles.[hash].css'),
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                    }
+                }],
             }, {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                use: ['file-loader'],
             }, {
-                test: /\.js$/, // babel 转换为兼容性的 js
+                test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
             },
         ],
     }

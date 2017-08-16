@@ -29,12 +29,23 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+                use : ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                            }
+                        }
+                    ]
+                }),
             }, {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']
             }, {
-                test: /\.js$/, // babel 转换为兼容性的 js
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },

@@ -4,6 +4,8 @@ import {Route, Link, Switch} from 'react-router-dom'
 import {testAction} from '../actions'
 import { ConnectedRouter as Router, push } from 'react-router-redux'
 import { history } from '../configureStore'
+import styles from '../assets/index.css'
+console.log(styles)
 
 const Home = () => (
     <div>
@@ -29,7 +31,7 @@ class App extends Component {
             <Router history={history}>
                 <div>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/" className={styles.test}>Home</Link></li>
                         <li><Link to="/about">About</Link></li>
                     </ul>
                     <hr/>
