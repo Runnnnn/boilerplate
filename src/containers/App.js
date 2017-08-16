@@ -1,17 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {Route, Link, Switch} from 'react-router-dom'
-import {testAction} from '../actions'
 import { ConnectedRouter as Router, push } from 'react-router-redux'
 import { history } from '../configureStore'
-import styles from '../assets/index.css'
-console.log(styles)
-
-const Home = () => (
-    <div>
-        <h2>Home</h2>
-    </div>
-)
+import {testAction} from '../actions'
+import Home from './Home'
 
 const About = () => (
     <div>
@@ -31,7 +24,7 @@ class App extends Component {
             <Router history={history}>
                 <div>
                     <ul>
-                        <li><Link to="/" className={styles.test}>Home</Link></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
                     </ul>
                     <hr/>
