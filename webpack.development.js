@@ -13,10 +13,15 @@ module.exports = {
         hot: true,
         contentBase: path.join(__dirname, 'src'),
         publicPath: '/',
+        historyApiFallback: { //子页面刷新404
+            rewrites: [
+                { from: /^\//, to: '/index.html'}
+            ]
+        },
     },
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.join(__dirname, 'dist'),
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -43,7 +48,7 @@ module.exports = {
                 test: /\.js$/, // babel 转换为兼容性的 js
                 exclude: /node_modules/,
                 loader: 'babel-loader'
-            }
-        ]
+            },
+        ],
     }
 }

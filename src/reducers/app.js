@@ -1,11 +1,9 @@
-const app = (state = {}, action) => {
+import {REQUEST_POSTS} from '../constants/ActionTypes'
+
+const app = (state = {test: 'test'}, action) => {
     switch (action.type) {
-    case 'INVALIDATE_REDDIT':
-    case 'RECEIVE_POSTS':
-    case 'REQUEST_POSTS':
-        return {
-            ...state
-        }
+    case REQUEST_POSTS:
+        return state
     default:
         return state
     }

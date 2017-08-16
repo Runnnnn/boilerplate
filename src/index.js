@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import configureStore from './configureStore'
 import { Provider } from 'react-redux'
+import configureStore from './configureStore'
 import rootSaga from './sagas'
 import App from './containers/App'
 

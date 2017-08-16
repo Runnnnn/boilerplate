@@ -11,7 +11,7 @@ module.exports = {
     devtool: 'inline-source-map',
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -23,7 +23,7 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({name: 'common'}),
-        new ExtractTextPlugin('styles.[hash].css')
+        new ExtractTextPlugin('styles.[hash].css'),
     ],
     module: {
         rules: [
@@ -37,7 +37,7 @@ module.exports = {
                 test: /\.js$/, // babel 转换为兼容性的 js
                 exclude: /node_modules/,
                 loader: 'babel-loader'
-            }
-        ]
+            },
+        ],
     }
 }
