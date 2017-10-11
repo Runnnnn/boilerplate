@@ -6,16 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractCSS = new ExtractTextPlugin('stylesheets/style.[hash].css')
 const extractSCSS = new ExtractTextPlugin('stylesheets/style.[hash].css')
 
-function HelloWorldPlugin(options) {
-  // Setup the plugin instance with options...
-}
-
-HelloWorldPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('done', function() {
-    console.log('Hello World!');
-  });
-};
-
 module.exports = {
     entry: {
         app: './src/index.js',
@@ -38,7 +28,6 @@ module.exports = {
         }),
         extractCSS,
         extractSCSS,
-        new HelloWorldPlugin(),
     ],
     module: {
         rules: [
