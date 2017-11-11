@@ -3,11 +3,11 @@
 var exec = require('child_process').exec
 
 const USER = 'root'
-const HOST = ''
+const HOST = 'obenben.com'
 const PORT = 22
-const PATH = ''
+const PATH = '/home/stocks/app'
 
-var cmd = `rsync -Pvr -e "ssh -p ${PORT}" dist/ ${USER}@${HOST}:${PATH}`
+var cmd = `rsync -Pvr -e "ssh -o StrictHostKeyChecking=no -p ${PORT}" dist/ ${USER}@${HOST}:${PATH}`
 
 var out = exec(cmd)
 

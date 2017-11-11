@@ -6,10 +6,15 @@
         "node": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
-            "jsx": true
+            "jsx": true,
+            "arrowFunctions": true,
+            "classes": true,
+            "modules": true,
+            "defaultParams": true
         },
         "sourceType": "module"
     },

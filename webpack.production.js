@@ -7,7 +7,14 @@ const merge = require('webpack-merge')
 module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false,
+                drop_debugger: true,
+                drop_console: true,
+            },
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
